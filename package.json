@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:js": "eslint src/**/*.js",
-    "lint": "npm run lint:js"
+    "eslint": "npm run lint:js"
   },
   "keywords": [],
   "author": "",
