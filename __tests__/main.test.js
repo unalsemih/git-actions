@@ -6,5 +6,5 @@ test('it should get full name of user', () => {
         surname: 'Doe',
     };
 
-  expect(user.getFullName(dummyUser)).toBe('Jane Doe');
+  expect(user.getFullName(dummyUser)).toBe('John Doe');
 });
