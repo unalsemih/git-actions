@@ -1,0 +1,25 @@
+{
+  "rules": {
+      "semi": "error",
+      "quotes": ["error", "single"],
+      "no-trailing-spaces": ["error", { "ignoreComments": true }],
+      "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+      "no-extra-semi": 2,
+      "no-extra-boolean-cast": 0,
+      "no-mixed-spaces-and-tabs": 2,
+      "no-multi-spaces": 2,
+      "no-use-before-define": 0,
+          "no-use-before-define": "off",
+          "no-param-reassign": "off",
+          "no-plusplus": "off",
+          "no-nested-ternary": "off",
+          "lines-between-class-members": "off"
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+
+    "env": {
+        "es6": true
+    }
+}

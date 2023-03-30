@@ -1,0 +1,17 @@
+{
+  "name": "git-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint src/**/*.js",
+    "lint": "npm run lint:js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.36.0"
+  }
+}
