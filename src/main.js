@@ -1,10 +1,10 @@
+const user = require('./user');
+
 const user1 = {
     name: 'John',
-    surname: 'Doe'
+    surname: 'Doe',
+    birthYear: 23,
 };
 
-const getFullName = function (user){
-    return `${user.name} ${user.surname}`;
-};
-
-getFullName(user1);
+console.log(user.getFullName(user1));
+console.log(user.getAge(user1));

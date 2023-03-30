@@ -3,15 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint:js": "eslint src/**/*.js",
-    "eslint": "npm run lint:js"
+    "eslint": "npm run lint:js",
+    "coverage": "jest --collectCoverage --"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^8.36.0"
+    "coverage": "^0.4.1",
+    "eslint": "^8.36.0",
+    "test": "^3.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
