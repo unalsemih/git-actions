@@ -6,7 +6,7 @@ const getAge = function (user){
     return new Date().getFullYear() - user.birthYear;
 };
 
-module.exports = {
+export default {
     getFullName,
     getAge
 };
