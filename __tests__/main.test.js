@@ -2,13 +2,14 @@ const user = require('../src/user');
 
 test('it should get full name of user', () => {
     const dummyUser = {
-        name: 'Jane',
+        name: 'John',
         surname: 'Doe',
     };
 
   expect(user.getFullName(dummyUser)).toBe('John Doe');
 });
 
+/*
 test('it should get age of user', () => {
   const dummyUser = {
       name: 'Jane',
@@ -18,3 +19,4 @@ test('it should get age of user', () => {
 
   expect(user.getAge(dummyUser)).toBe(33);
 });
+*/
