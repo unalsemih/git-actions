@@ -1,23 +1,19 @@
-name: Tests and Coveralls
-
-on: push
-
+name: Test and Coverage
+on: [push]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: 14.x
-      - name: Install Dependencies
-        run: npm install
-      - name: Run Tests with Coverage
-        run: npm run test:coverage
-      - name: Upload to Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          coveralls-token: e8vusSxCkUAjReKwDZulRwFemNWfVPtop
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run test -- --coverage
+    - uses: CoverallsApp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
