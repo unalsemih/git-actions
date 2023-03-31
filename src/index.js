@@ -6,5 +6,7 @@ const user1 = {
     birthYear: 23,
 };
 
+window.userApi = user;
+
 console.log('Your fullname -> ', user.getFullName(user1));
 console.log('Your age -> ', user.getAge(user1));
