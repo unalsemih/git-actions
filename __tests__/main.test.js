@@ -1,4 +1,4 @@
-const user = require('../src/user');
+import user from '../src/user';
 
 test('it should get full name of user', () => {
     const dummyUser = {
