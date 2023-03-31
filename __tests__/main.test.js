@@ -9,7 +9,6 @@ test('it should get full name of user', () => {
   expect(user.getFullName(dummyUser)).toBe('John Doe');
 });
 
-/*
 test('it should get age of user', () => {
   const dummyUser = {
       name: 'Jane',
@@ -19,4 +18,3 @@ test('it should get age of user', () => {
 
   expect(user.getAge(dummyUser)).toBe(33);
 });
-*/
