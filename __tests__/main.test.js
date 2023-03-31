@@ -11,7 +11,7 @@ test('it should get full name of user', () => {
 
 test('it should get age of user', () => {
   const dummyUser = {
-      name: 'Jane',
+      name: 'John',
       surname: 'Doe',
       birthYear: 1990,
   };
