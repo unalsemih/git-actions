@@ -2,7 +2,7 @@ const user = require('../src/user');
 
 test('it should get full name of user', () => {
     const dummyUser = {
-        name: 'John',
+        name: 'Jane',
         surname: 'Doe',
     };
 
@@ -11,7 +11,7 @@ test('it should get full name of user', () => {
 
 test('it should get age of user', () => {
   const dummyUser = {
-      name: 'John',
+      name: 'Jane',
       surname: 'Doe',
       birthYear: 1990,
   };
