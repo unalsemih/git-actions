@@ -15,5 +15,8 @@ jobs:
       - name: Build package
         run: npm run build
       - name: Publish to NPM
-        run: npm publish
-      
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          package_folder: './dist'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
