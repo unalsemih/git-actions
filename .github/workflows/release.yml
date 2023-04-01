@@ -1,6 +1,10 @@
 name: NPM Package Release
 on: push
 
+env:
+  NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
