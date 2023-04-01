@@ -16,3 +16,4 @@ jobs:
           package_folder: './dist'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+          
