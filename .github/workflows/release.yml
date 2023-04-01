@@ -1,5 +1,8 @@
 name: Release
-on: push
+on:
+  push:
+    branches:
+      - master
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
