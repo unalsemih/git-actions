@@ -1,4 +1,4 @@
-import user from './user.js';
+const user = require('./user');
 
 const user1 = {
     name: 'John',
