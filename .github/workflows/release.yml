@@ -16,12 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Version Bump
-      - name: Version Bump
-        run: npm version patch -m "Bump version to %s"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Create Release
       - name: Create Release
         uses: actions/create-release@v1
