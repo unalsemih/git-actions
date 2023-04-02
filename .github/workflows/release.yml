@@ -21,6 +21,12 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm ci
+
+      - name: Print version from package.json
+        run: echo ${{ env.npm_package_version }}
+      - name: Print contents of package.json
+        run: cat package.json
+
       - name: Build
         run: npm run build
       - run: npm publish
