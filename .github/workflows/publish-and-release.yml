@@ -46,7 +46,6 @@ jobs:
         with:
           tag_name: "v$(jq -r .version package.json)"
           release_name: "Release v$(jq -r .version package.json)"
-
           body: |
             - See the package to download this version.
           draft: false
