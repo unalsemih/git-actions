@@ -15,23 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: npm ci
-
-      - name: Print version from package.json
-        run: echo $(jq -r .version package.json)
-      - name: Print contents of package.json
-        run: cat package.json
-
-
       - name: Build
         run: npm run build
       - run: npm publish
-
 
       - name: Create Release
         id: create_release
@@ -40,7 +32,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v$(jq -r .version package.json)
-          release_name: Release $(jq -r .version package.json)
+          release_name: Release$(jq -r .version package.json)
           body: |
             - See the package to download this version.
           draft: false
