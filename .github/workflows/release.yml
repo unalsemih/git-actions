@@ -23,19 +23,19 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - run: npm publish
+#      - run: npm publish#
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.npm_package_version }}
-          release_name: Release ${{ env.npm_package_version }}
-          body: |
-            - See the package to download this version.
-          draft: false
-          prerelease: true
-          projectPath: dist
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: v${{ env.npm_package_version }}
+#          release_name: Release ${{ env.npm_package_version }}
+#          body: |
+#            - See the package to download this version.
+#          draft: false
+#          prerelease: true
+#          projectPath: dist
 
