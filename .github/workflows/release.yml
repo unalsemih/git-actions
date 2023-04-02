@@ -22,7 +22,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v$(jq -r .version package.json)"
-          release_name: Release $(jq -r .version package.json)"
+          tag_name: "v$(jq -r .version package.json)"
+          release_name: "Release $(jq -r .version package.json)"
           draft: false
-          prerelease: false
+          prerelease: true
