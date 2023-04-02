@@ -46,6 +46,7 @@ jobs:
         with:
           tag_name: "v${{ env.npm_package_version }}"
           release_name: "Release v${{ env.npm_package_version }}"
+
           body: |
             - See the package to download this version.
           draft: false
