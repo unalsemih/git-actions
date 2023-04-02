@@ -23,13 +23,15 @@ jobs:
         run: npm ci
 
       - name: Print version from package.json
-        run: echo ${{ env.npm_package_version }}
+        run: echo $(jq -r .version package.json)
       - name: Print contents of package.json
         run: cat package.json
+
 
       - name: Build
         run: npm run build
       - run: npm publish
+
 
       - name: Create Release
         id: create_release
