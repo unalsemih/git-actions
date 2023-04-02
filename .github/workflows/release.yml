@@ -23,6 +23,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: "v$(jq -r .version package.json)"
-          release_name: "Release $(jq -r .version package.json)"
+          release_name: "Release v$(jq -r .version package.json)"
           draft: false
-          prerelease: true
+          prerelease: false
+      - name: Upload Assets
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/*
+          asset_name: project-${{ github.ref }}.zip
+          asset_content_type: application/zip
