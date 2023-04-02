@@ -37,3 +37,5 @@ jobs:
             - See the package to download this version.
           draft: true
           prerelease: true
+          projectPath: dist
+
