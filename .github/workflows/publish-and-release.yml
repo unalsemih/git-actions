@@ -35,14 +35,19 @@ jobs:
           git tag v$(jq -r .version package.json)
           git push origin v$(jq -r .version package.json)
 
+      - name: Print version from package.json
+        run: echo v$(jq -r .version package.json)
+
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v$(jq -r .version package.json)
-          release_name: Release v$(jq -r .version package.json)
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: |
             - See the package to download this version.
           draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: true
+          projectPath: dist
