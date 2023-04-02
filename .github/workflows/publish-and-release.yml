@@ -32,8 +32,11 @@ jobs:
 
       - name: Create Tag
         run: |
-          git tag v$(jq -r .version package.json)
-          git push origin v$(jq -r .version package.json)
+          git tag "v${{ env.npm_package_version }}"
+          git push origin "v${{ env.npm_package_version }}"
+
+      - name: Print version from package.json
+        run: echo "v${{ env.npm_package_version }}"
 
       - name: Create Release
         id: create_release
@@ -41,8 +44,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v$(jq -r .version package.json)
-          release_name: Release v$(jq -r .version package.json)
+          tag_name: "v${{ env.npm_package_version }}"
+          release_name: "Release v${{ env.npm_package_version }}"
+
           body: |
             - See the package to download this version.
           draft: false
