@@ -25,6 +25,17 @@ jobs:
         run: npm run build
       - run: npm publish
 
+      - name: Create Tag
+        uses: actions/create-tag@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v$(jq -r .version package.json)
+          TAG_MESSAGE: Release v$(jq -r .version package.json)
+          REF: refs/heads/master
+          RELEASE_BRANCH: master
+      - name: Store tag name
+        run: echo ::set-env name=TAG_NAME::$(cat .tag_name)
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
