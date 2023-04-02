@@ -30,24 +30,24 @@ jobs:
       - name: Publish NPM Package
         run: npm publish
 
-      - name: Create Tag
-        run: |
-          git tag "v$(jq -r .version package.json)"
-          git push origin "v$(jq -r .version package.json)"
+#      - name: Create Tag
+#        run: |
+#          git tag "v$(jq -r .version package.json)"
+#          git push origin "v$(jq -r .version package.json)"#
 
-      - name: Print version from package.json
-        run: echo "v${{ env.npm_package_version }}"
+#      - name: Print version from package.json
+#        run: echo "v${{ env.npm_package_version }}"#
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: "v$(jq -r .version package.json)"
-          release_name: "Release v$(jq -r .version package.json)"
-          body: |
-            - See the package to download this version.
-          draft: false
-          prerelease: true
-          projectPath: dist
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: "v$(jq -r .version package.json)"
+#          release_name: "Release v$(jq -r .version package.json)"
+#          body: |
+#            - See the package to download this version.
+#          draft: false
+#          prerelease: true
+#          projectPath: dist
