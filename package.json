@@ -1,6 +1,6 @@
 {
   "name": "git-actions",
-  "version": "1.6.36-development",
+  "version": "1.6.37-development",
   "description": "",
   "main": "index.js",
   "type": "Commonjs",
