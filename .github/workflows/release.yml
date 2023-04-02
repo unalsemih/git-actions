@@ -37,8 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.npm_package_version }}
-          release_name: Release ${{ env.npm_package_version }}
+          tag_name: v$(jq -r .version package.json)
+          release_name: Release $(jq -r .version package.json)
           body: |
             - See the package to download this version.
           draft: false
