@@ -25,8 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: "Release ${{ github.ref }} - Version ${{ steps.get_version.outputs.version }}"
+          tag_name: ${{ github.head_ref }}
+          release_name: "Release ${{ github.head_ref }} - Version ${{ steps.get_version.outputs.version }}"
           draft: false
           prerelease: false
       - name: Push changes
