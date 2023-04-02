@@ -1,5 +1,8 @@
 name: "ESLint Check"
-on: push
+on:
+  push:
+    branches-ignore:
+      - 'master'
 jobs: 
   eslint: 
     runs-on: ubuntu-latest
