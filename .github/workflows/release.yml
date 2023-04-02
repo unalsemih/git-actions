@@ -26,3 +26,17 @@ jobs:
       - name: Build
         run: npm run build
       - run: npm publish
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            - See the package to download this version.
+          draft: true
+          prerelease: true
+
