@@ -1,4 +1,4 @@
-name: Release
+name: Publish NPM Package and Create Release
 on:
   push:
     branches:
@@ -8,28 +8,34 @@ env:
   NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
 
 jobs:
-  build:
+  publish_npm_package_and_create_release:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Use Node.js
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Install dependencies
-        run: npm ci
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Build
         run: npm run build
-      - run: npm publish
+
+      - name: Publish NPM Package
+        run: npm publish
+
+      - name: Create Tag
+        run: |
+          git tag v${{ env.npm_package_version }}
+          git push origin v${{ env.npm_package_version }}
 
       - name: Create Release
-        id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.npm_package_version }}
           release_name: Release ${{ env.npm_package_version }}
@@ -37,5 +43,5 @@ jobs:
             - See the package to download this version.
           draft: false
           prerelease: true
-          projectPath: dist
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
