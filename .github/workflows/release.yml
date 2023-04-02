@@ -23,7 +23,7 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-#      - run: npm publish#
+#      - run: npm publish
 
 #      - name: Create Release
 #        id: create_release
