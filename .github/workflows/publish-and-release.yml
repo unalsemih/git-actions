@@ -43,6 +43,6 @@ jobs:
           body: |
             - See the package to download this version.
           draft: false
-          prerelease: true
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
