@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Publish NPM Package
+      #- name: Publish NPM Package
         #run: npm publish
 
 #      - name: Create Tag
