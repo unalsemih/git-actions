@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - release-test
+      - master
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
